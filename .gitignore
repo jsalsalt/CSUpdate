@@ -68,3 +68,5 @@
 .settings
 .#*
 work/
+/java/DataStruct/nbproject/private/
+/java/DataStruct/build/
