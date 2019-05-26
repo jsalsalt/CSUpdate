@@ -15,14 +15,14 @@ public class JStackStatic extends JStackGeneric {
 
     public JStackStatic(int size) {
         this.size = size;
-        this.top = 0;
+        this.top = -1;
         this.structure = new Object[size];
     }
 
     @Override
     protected void push(Object val) {
-        top++;
         if (top < size) {
+            top++;
             structure[top] = val;
         }
     }
@@ -33,7 +33,28 @@ public class JStackStatic extends JStackGeneric {
             return null;
         } else {
             top--;
-            return structure[top + 1];
+            Object ret = structure[top + 1];
+            structure[top + 1] = null;
+            return ret;
         }
+    }
+
+    private String strutToString() {
+        String x = "";
+        for (Object t : structure) {
+            String text = "NIL";
+            if (t != null) {
+                text = t.toString();
+            }
+            x += text + ", ";
+        }
+        return x;
+    }
+
+    @Override
+    public String toString() {
+        return "------------------\n"
+                + "Top: " + top + "| Size: " + size + "|\n"
+                + strutToString();
     }
 }

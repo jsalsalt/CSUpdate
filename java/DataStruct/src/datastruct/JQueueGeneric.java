@@ -31,4 +31,9 @@ public abstract class JQueueGeneric {
         return "------------------\n"
                 + "Head: " + head + "| Tail: " + tail + "| Size: " + size + "|\n";
     }
+
+    public void print() {
+        System.out.println(toString());
+    }
+
 }

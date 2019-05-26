@@ -22,7 +22,7 @@ public class JQueueStatic extends JQueueGeneric {
 
     protected void in(Object val) {
         structure[tail] = val;
-        if (tail == (size - 1)) {
+        if (tail == (structure.length - 1)) {
             tail = 0;
         } else {
             tail++;
@@ -31,11 +31,31 @@ public class JQueueStatic extends JQueueGeneric {
 
     protected Object out() {
         Object ret = structure[head];
+        structure[head] = null;
         if (head == (size - 1)) {
             head = 0;
         } else {
             head++;
         }
         return ret;
+    }
+
+    private String strutToString() {
+        String x = "";
+        for (Object t : structure) {
+            String text = "NIL";
+            if (t != null) {
+                text = t.toString();
+            }
+            x += text + ", ";
+        }
+        return x;
+    }
+
+    @Override
+    public String toString() {
+        return "------------------\n"
+                + "Head: " + head + "| Tail: " + tail + "| Size: " + size + "|\n"
+                + strutToString();
     }
 }

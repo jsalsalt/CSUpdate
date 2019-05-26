@@ -11,7 +11,7 @@ package datastruct;
  */
 public abstract class JStackGeneric {
 
-    protected int top = 0;
+    protected int top = -1;
     protected int size = 0;
 
     protected void push(Object val) {
@@ -23,12 +23,16 @@ public abstract class JStackGeneric {
     }
 
     protected final boolean isEmpty() {
-        return top == 0;
+        return top == -1;
     }
 
     public String toString() {
         return "------------------\n"
                 + "Top: " + top + "| Size: " + size + "|\n";
+    }
+
+    public void print() {
+        System.out.println(toString());
     }
 
 }
