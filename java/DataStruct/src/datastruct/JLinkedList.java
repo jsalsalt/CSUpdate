@@ -11,7 +11,7 @@ package datastruct;
  */
 public class JLinkedList {
 
-    protected static LNode head = null;
+    private LNode head = null;
 
     public boolean isEmpty() {
         return head == null;
@@ -19,24 +19,25 @@ public class JLinkedList {
 
     public Object lSearch(Object k) {
         LNode x = head;
-        while (x != null || x.value != k) {
+        while (x != null && x.value != k) {
             x = x.next;
         }
         return x.value;
     }
 
     public void lInsert(Object k) {
-        LNode x = head;
+        LNode val = new LNode(k);
+        val.next = head;
         if (!isEmpty()) {
-            head.prev = new LNode(k);
+            head.prev = val;
         }
-        head = x;
-        x.prev = null;
+        head = val;
+        val.prev = null;
     }
 
     public Object lDelete(Object k) {
         LNode x = head;
-        while (x != null || x.value == k) {
+        while (x != null && x.value != k) {
             x = x.next;
         }
         if (x.prev != null) {
@@ -48,5 +49,15 @@ public class JLinkedList {
             x.next.prev = x.prev;
         }
         return x.value;
+    }
+
+    public void print() {
+        String ret = "";
+        LNode x = head;
+        while (x != null) {
+            ret += ((x.value != null) ? x.value.toString() : "NIL") + " > ";
+            x = x.next;
+        }
+        System.out.println(ret);
     }
 }

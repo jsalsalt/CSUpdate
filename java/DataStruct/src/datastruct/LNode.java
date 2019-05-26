@@ -11,9 +11,9 @@ package datastruct;
  */
 public class LNode {
 
-    protected static LNode next = null;
-    protected static LNode prev = null;
-    protected static Object value = null;
+    protected LNode next = null;
+    protected LNode prev = null;
+    protected Object value = null;
 
     public LNode(Object k) {
         value = k;
