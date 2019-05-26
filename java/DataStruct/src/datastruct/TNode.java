@@ -11,7 +11,12 @@ package datastruct;
  */
 public class TNode {
 
-    protected static TNode right = null;
-    protected static TNode left = null;
-    protected static Object value = null;
+    protected TNode right = null;
+    protected TNode left = null;
+    protected TNode parent = null;
+    protected int value = Integer.MIN_VALUE;
+
+    public TNode(int val) {
+        value = val;
+    }
 }
