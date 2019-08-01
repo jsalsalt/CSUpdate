@@ -9,15 +9,15 @@ package datastruct;
  *
  * @author JOSALAZA
  */
-public class JLinkedList {
+public class IntLinkedList {
 
-    public LNode head = null;
+    public IntNode head = null;
 
-    public JLinkedList() {
+    public IntLinkedList() {
         super();
     }
 
-    public JLinkedList(Object[] o) {
+    public IntLinkedList(int[] o) {
         head = fromArray(o);
     }
 
@@ -25,16 +25,16 @@ public class JLinkedList {
         return head == null;
     }
 
-    public Object lSearch(Object k) {
-        LNode x = head;
+    public int lSearch(int k) {
+        IntNode x = head;
         while (x != null && x.value != k) {
             x = x.next;
         }
         return x.value;
     }
 
-    public void lInsert(Object k) {
-        LNode val = new LNode(k);
+    public void lInsert(int k) {
+        IntNode val = new IntNode(k);
         val.next = head;
         if (!isEmpty()) {
             head.prev = val;
@@ -43,8 +43,8 @@ public class JLinkedList {
         val.prev = null;
     }
 
-    public Object lDelete(Object k) {
-        LNode x = head;
+    public int lDelete(int k) {
+        IntNode x = head;
         while (x != null && x.value != k) {
             x = x.next;
         }
@@ -59,15 +59,15 @@ public class JLinkedList {
         return x.value;
     }
 
-    public LNode fromArray(Object[] ob) {
+    public IntNode fromArray(int[] ob) {
         if (ob.length == 0) {
             return null;
         }
-        LNode init = new LNode(ob[0]);
-        LNode p = init;
+        IntNode init = new IntNode(ob[0]);
+        IntNode p = init;
 
         for (int i = 1; i < ob.length; i++) {
-            p.next = new LNode(ob[i]);
+            p.next = new IntNode(ob[i]);
             p = p.next;
         }
         return init;
@@ -75,9 +75,9 @@ public class JLinkedList {
 
     public void print() {
         String ret = "";
-        LNode x = head;
+        IntNode x = head;
         while (x != null) {
-            ret += ((x.value != null) ? x.value.toString() : "NIL") + " > ";
+            ret += ((x.value != Integer.MIN_VALUE) ? x.value : "NIL") + " > ";
             x = x.next;
         }
         System.out.println(ret);
