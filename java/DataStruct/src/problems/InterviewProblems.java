@@ -12,9 +12,37 @@ import datastruct.IntNode;
  *
  * @author JOSALAZA
  */
-public class MergeList {
+public class InterviewProblems {
 
-    IntNode merge1(IntNode p1, IntNode p2) {
+    public void taskPriority() {
+
+    }
+
+    public int meetingRooms(Object[] o) {
+        return 0;
+    }
+
+    public void horizontalToVertical(int val) {
+
+        int dig = 0;
+        while ((int) (val % Math.pow(10, dig)) != val) {
+            dig++;
+        }
+        dig--;
+        int rem = val;
+        while (dig > -1) {
+            int f = (int) (rem / Math.pow(10, dig));
+            rem = (int) (rem % Math.pow(10, dig));
+            System.out.println(f);
+            dig--;
+        }
+    }
+
+    public void bucketWeights(int[] arr) {
+
+    }
+
+    public IntNode merge1(IntNode p1, IntNode p2) {
         IntNode res = new IntNode(0);
         IntNode p3 = res;
 
@@ -39,7 +67,7 @@ public class MergeList {
         return res.next;
     }
 
-    IntNode merge(IntNode headA, IntNode headB) {
+    public IntNode merge(IntNode headA, IntNode headB) {
 
         IntNode dummyNode = new IntNode(0);
         IntNode tail = dummyNode;
@@ -67,12 +95,17 @@ public class MergeList {
     }
 
     public static void main(String[] args) {
+        InterviewProblems ip = new InterviewProblems();
         IntLinkedList l1 = new IntLinkedList(new int[]{1, 2, 2, 6, 8, 9});
         IntLinkedList l2 = new IntLinkedList(new int[]{1, 4, 5, 8, 10, 12});
         l1.print();
         l2.print();
-        new MergeList().merge1(l1.head, l2.head).print();
+        ip.merge1(l1.head, l2.head).print();
+
+        ip.horizontalToVertical(123);
+        ip.horizontalToVertical(1230);
+        ip.horizontalToVertical(1203);
+        ip.horizontalToVertical(3);
 
     }
-
 }
