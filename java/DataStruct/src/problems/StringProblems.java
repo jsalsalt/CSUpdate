@@ -23,6 +23,17 @@ public class StringProblems {
         }
     }
 
+    public int firstUniqueChar(String s) {
+        int idx = -1;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (s.charAt(i) == s.charAt(i + 1)) {
+
+            }
+        }
+        return idx;
+    }
+
     public static void main(String[] args) {
         StringProblems sp = new StringProblems();
         char[] s = new char[]{'h', 'e', 'l', 'l', 'o'};
