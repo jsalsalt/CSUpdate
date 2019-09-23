@@ -11,8 +11,8 @@ package ds2;
  */
 public class Node {
 
-    Node next = null;
-    int value;
+    public Node next = null;
+    public int value;
 
     public Node(int n) {
         value = n;
